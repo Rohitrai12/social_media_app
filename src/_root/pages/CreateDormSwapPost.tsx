@@ -1,6 +1,6 @@
 import PostForm from "@/components/forms/PostForm";
 
-const CreatePost = () => {
+const CreateDormSwapPost = () => {
   return (
     <div className="flex flex-1">
       <div className="common-container">
@@ -11,7 +11,7 @@ const CreatePost = () => {
             height={36}
             alt="add"
           />
-          <h2 className="h3-bold md:h2-bold text-left w-full">Create Post</h2>
+          <h2 className="h3-bold md:h2-bold text-left w-full">Create Dorm Swap Post</h2>
         </div>
 
         <PostForm action="Create" />
@@ -20,4 +20,4 @@ const CreatePost = () => {
   );
 };
 
-export default CreatePost;
+export default CreateDormSwapPost;
