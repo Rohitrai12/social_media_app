@@ -2,6 +2,16 @@ import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import { Button } from "../ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "../ui/dropdown-menu"
+
+
 import { useUserContext } from "@/context/AuthContext";
 import { useSignOutAccount } from "@/lib/react-query/queries";
 
@@ -27,19 +37,52 @@ const Topbar = () => {
         </Link>
 
         <div className="flex gap-4">
-          <Button
+
+          {/* <Button
             variant="ghost"
             className="shad-button_ghost"
             onClick={() => signOut()}>
             <img src="/assets/icons/logout.svg" alt="logout" />
-          </Button>
+          </Button> */}
+
+          <DropdownMenu>
+            <DropdownMenuTrigger >
+              <img
+                  src={user.imageUrl || "/assets/icons/profile-placeholder.svg"}
+                  alt="profile"
+                  className="h-8 w-8 rounded-full"
+                />
+            </DropdownMenuTrigger>
+
+            <DropdownMenuContent>
+              <DropdownMenuItem >
+                <Button
+                  variant="link"
+                  className="shad-button_link"
+                  onClick={() => navigate(`/profile/${user.id}`)}>
+                    Profile
+                </Button>
+              </DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>
+                <Button
+                  variant="link"
+                  className="shad-button_link"
+                  onClick={() => signOut()}>
+                    Log out
+                </Button>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+
+{/* 
           <Link to={`/profile/${user.id}`} className="flex-center gap-3">
             <img
               src={user.imageUrl || "/assets/icons/profile-placeholder.svg"}
               alt="profile"
               className="h-8 w-8 rounded-full"
             />
-          </Link>
+          </Link> */}
         </div>
       </div>
     </section>
