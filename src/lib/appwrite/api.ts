@@ -138,7 +138,7 @@ export async function createPost(post: INewPost) {
     // Create post
     const newPost = await databases.createDocument(
       appwriteConfig.databaseId,
-      appwriteConfig.postCollectionId,
+      appwriteConfig.dormSwapPostCollectionId,
       ID.unique(),
       {
         creator: post.userId,
@@ -212,7 +212,7 @@ export async function searchPosts(searchTerm: string) {
   try {
     const posts = await databases.listDocuments(
       appwriteConfig.databaseId,
-      appwriteConfig.postCollectionId,
+      appwriteConfig.dormSwapPostCollectionId,
       [Query.search("caption", searchTerm)]
     );
 
@@ -234,7 +234,7 @@ export async function getInfinitePosts({ pageParam }: { pageParam: number }) {
   try {
     const posts = await databases.listDocuments(
       appwriteConfig.databaseId,
-      appwriteConfig.postCollectionId,
+      appwriteConfig.dormSwapPostCollectionId,
       queries
     );
 
@@ -253,7 +253,7 @@ export async function getPostById(postId?: string) {
   try {
     const post = await databases.getDocument(
       appwriteConfig.databaseId,
-      appwriteConfig.postCollectionId,
+      appwriteConfig.dormSwapPostCollectionId,
       postId
     );
 
@@ -296,7 +296,7 @@ export async function updatePost(post: IUpdatePost) {
     //  Update post
     const updatedPost = await databases.updateDocument(
       appwriteConfig.databaseId,
-      appwriteConfig.postCollectionId,
+      appwriteConfig.dormSwapPostCollectionId,
       post.postId,
       {
         caption: post.caption,
@@ -336,7 +336,7 @@ export async function deletePost(postId?: string, imageId?: string) {
   try {
     const statusCode = await databases.deleteDocument(
       appwriteConfig.databaseId,
-      appwriteConfig.postCollectionId,
+      appwriteConfig.dormSwapPostCollectionId,
       postId
     );
 
@@ -355,7 +355,7 @@ export async function likePost(postId: string, likesArray: string[]) {
   try {
     const updatedPost = await databases.updateDocument(
       appwriteConfig.databaseId,
-      appwriteConfig.postCollectionId,
+      appwriteConfig.dormSwapPostCollectionId,
       postId,
       {
         likes: likesArray,
@@ -414,7 +414,7 @@ export async function getUserPosts(userId?: string) {
   try {
     const post = await databases.listDocuments(
       appwriteConfig.databaseId,
-      appwriteConfig.postCollectionId,
+      appwriteConfig.dormSwapPostCollectionId,
       [Query.equal("creator", userId), Query.orderDesc("$createdAt")]
     );
 
@@ -431,7 +431,7 @@ export async function getRecentPosts() {
   try {
     const posts = await databases.listDocuments(
       appwriteConfig.databaseId,
-      appwriteConfig.postCollectionId,
+      appwriteConfig.dormSwapPostCollectionId,
       [Query.orderDesc("$createdAt"), Query.limit(20)]
     );
 

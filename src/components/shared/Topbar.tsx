@@ -85,6 +85,7 @@ const Topbar = () => {
           </Link> */}
         </div>
       </div>
+      <hr className="topbar-divider"/>
     </section>
   );
 };

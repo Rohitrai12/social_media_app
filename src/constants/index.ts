@@ -26,7 +26,7 @@ export const sidebarLinks = [
   },
 ];
 
-export const bottombarLinks = [
+export const bottomBannerLinks = [
   {
     imgURL: "/assets/icons/home.svg",
     route: "/",

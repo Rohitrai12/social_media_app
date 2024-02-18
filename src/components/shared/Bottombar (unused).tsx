@@ -1,13 +1,13 @@
 import { Link, useLocation } from "react-router-dom";
 
-import { bottombarLinks } from "@/constants";
+import { bottomBannerLinks } from "@/constants";
 
 const Bottombar = () => {
   const { pathname } = useLocation();
 
   return (
     <section className="bottom-bar">
-      {bottombarLinks.map((link) => {
+      {bottomBannerLinks.map((link) => {
         const isActive = pathname === link.route;
         return (
           <Link
