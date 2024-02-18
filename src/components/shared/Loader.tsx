@@ -3,8 +3,8 @@ const Loader = () => (
     <img
       src="/assets/icons/loader.svg"
       alt="loader"
-      width={24}
-      height={24}
+      width={48}
+      height={48}
       className="animate-spin"
     />
   </div>

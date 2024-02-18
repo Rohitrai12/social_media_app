@@ -10,15 +10,27 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu"
+import { Loader } from "@/components/shared";
 
 
-import { useUserContext } from "@/context/AuthContext";
+import { useUserContext, INITIAL_USER } from "@/context/AuthContext";
 import { useSignOutAccount } from "@/lib/react-query/queries";
 
 const Topbar = () => {
   const navigate = useNavigate();
-  const { user } = useUserContext();
+  const { user, setUser, setIsAuthenticated, isLoading } = useUserContext();
   const { mutate: signOut, isSuccess } = useSignOutAccount();
+
+  const handleSignOut = async (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    signOut();
+    setIsAuthenticated(false);
+    setUser(INITIAL_USER);
+    navigate("/sign-in");
+  };
+  
 
   useEffect(() => {
     if (isSuccess) navigate(0);
@@ -45,12 +57,17 @@ const Topbar = () => {
             <img src="/assets/icons/logout.svg" alt="logout" />
           </Button> */}
 
-          <DropdownMenu>
+        {isLoading || !user.email ? (
+          <div className="h-12">
+            <Loader />
+          </div>
+          ) : (
+            <DropdownMenu>
             <DropdownMenuTrigger >
               <img
                   src={user.imageUrl || "/assets/icons/profile-placeholder.svg"}
                   alt="profile"
-                  className="h-8 w-8 rounded-full"
+                  className="h-12 w-12 rounded-full"
                 />
             </DropdownMenuTrigger>
 
@@ -68,12 +85,15 @@ const Topbar = () => {
                 <Button
                   variant="link"
                   className="shad-button_link"
-                  onClick={() => signOut()}>
+                  onClick={(e) => handleSignOut(e)}>
                     Log out
                 </Button>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
+        )}
+
+      
 
 {/* 
           <Link to={`/profile/${user.id}`} className="flex-center gap-3">
