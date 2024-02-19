@@ -139,8 +139,11 @@
   }
 
    /* Home */
-  .home-posts-container {
-    @apply flex flex-col items-center gap-10 overflow-scroll py-4 px-5 custom-scrollbar;
+   .home-posts-container-container{
+    @apply flex flex-col items-center justify-center min-h-screen min-w-full;
+   }
+   .home-posts-container {
+    @apply flex flex-col items-center gap-10 py-4 overflow-scroll px-5 custom-scrollbar;
   }
 
   .home-posts {
@@ -148,7 +151,7 @@
   }
 
   .home-img-container {
-    @apply relative w-full pt-6 pb-10 px-1 sm:px-2 md:px-4 lg:px-8 xl:px-16 2xl:px-32 transition-all duration-200 ease-in-out;
+    @apply relative w-full pt-6 py-10 px-1 sm:px-2 md:px-4 lg:px-8 xl:px-16 2xl:px-32 transition-all duration-200 ease-in-out;
   }
 
   .home-creators {
@@ -197,7 +200,7 @@
   /* Botton banner */
 
   .bottom-banner {
-    @apply sticky inset-x-0 bottom-0 bg-dark-1 border-t;
+    @apply fixed inset-x-0 bottom-0 bg-dark-1 border-t;
   }
 
   .bottom-banner-content {
