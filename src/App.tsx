@@ -10,6 +10,7 @@ import {
   PostDetails,
   UpdateProfile,
   AllUsers,
+  // Feedback,
 } from "@/_root/pages";
 import AuthLayout from "./_auth/AuthLayout";
 import RootLayout from "./_root/RootLayout";
@@ -20,6 +21,13 @@ import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
 
 const App = () => {
+      // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+      if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+    } else {
+        document.documentElement.classList.remove('dark')
+    }
+    
   return (
     <main className="flex h-screen">
       <Routes>
@@ -40,6 +48,7 @@ const App = () => {
           <Route path="/posts/:id" element={<PostDetails />} />
           <Route path="/profile/:id/*" element={<Profile />} />
           <Route path="/update-profile/:id" element={<UpdateProfile />} />
+          {/* <Route path="/feedback" element={<Feedback />} /> */}
         </Route>
       </Routes>
 

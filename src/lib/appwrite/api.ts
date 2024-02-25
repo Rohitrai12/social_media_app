@@ -114,6 +114,38 @@ export async function signOutAccount() {
 }
 
 // ============================================================
+// Feedback
+// ============================================================
+
+// ============================== CREATE FEEDBACK POST
+
+export async function createFeedbackPost(post: INewPost) {
+  try {
+    // Create post
+    const newPost = await databases.createDocument(
+      appwriteConfig.databaseId,
+      appwriteConfig.dormSwapPostCollectionId,
+      ID.unique(),
+      {
+        creator: post.userId,
+        caption: post.caption,
+        location: post.location,
+
+      }
+    );
+
+    if (!newPost) {
+      throw Error;
+    }
+
+    return newPost;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+
+// ============================================================
 // POSTS
 // ============================================================
 

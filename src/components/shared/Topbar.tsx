@@ -1,7 +1,8 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import { Button } from "../ui/button";
+import { Toggle } from "../ui/toggleDarkMode";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -9,6 +10,8 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
+  DropdownMenuCheckboxItem
+
 } from "../ui/dropdown-menu"
 import { Loader } from "@/components/shared";
 
@@ -29,23 +32,21 @@ const Topbar = () => {
     setIsAuthenticated(false);
     setUser(INITIAL_USER);
     navigate("/sign-in");
-  };
-  
+  };  
 
   useEffect(() => {
-    if (isSuccess) navigate(0);
+    
   }, [isSuccess]);
+  
 
   return (
     <section className="topbar">
       <div className="flex-between py-4 px-5">
         <Link to="/" className="flex gap-3 items-center">
-          <img
-            src="/assets/images/logoWhite.svg"
-            alt="logo"
-            width={130}
-            height={325}
-          />
+
+          <div className="logo">
+
+          </div>
         </Link>
 
         <div className="flex gap-4">
@@ -56,6 +57,18 @@ const Topbar = () => {
             onClick={() => signOut()}>
             <img src="/assets/icons/logout.svg" alt="logout" />
           </Button> */}
+
+          <Button
+            variant="ghost"
+            className="shad-button_ghost"
+            onClick={() => navigate(`/feedback`)}>
+              Feedback
+          </Button>
+
+          <Toggle 
+            variant="default"
+            className="shad-toggle" 
+          />
 
         {isLoading || !user.email ? (
           <div className="h-12">
@@ -72,6 +85,8 @@ const Topbar = () => {
             </DropdownMenuTrigger>
 
             <DropdownMenuContent>
+
+
               <DropdownMenuItem >
                 <Button
                   variant="link"
@@ -80,7 +95,13 @@ const Topbar = () => {
                     Profile
                 </Button>
               </DropdownMenuItem>
+
+              <DropdownMenuCheckboxItem>
+                asdfj
+              </DropdownMenuCheckboxItem>
+
               <DropdownMenuSeparator />
+
               <DropdownMenuItem>
                 <Button
                   variant="link"
@@ -105,7 +126,9 @@ const Topbar = () => {
           </Link> */}
         </div>
       </div>
-      <hr className="topbar-divider"/>
+
+      <div className="topbar-divider"/>
+      
     </section>
   );
 };

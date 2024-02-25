@@ -1,5 +1,7 @@
 import { Models } from "appwrite";
 
+import Bottombanner from "@/components/shared/Bottombanner";
+
 // import { useToast } from "@/components/ui/use-toast";
 import { Loader, PostCard, UserCard } from "@/components/shared";
 import { useGetRecentPosts, useGetUsers } from "@/lib/react-query/queries";
@@ -22,10 +24,10 @@ const Home = () => {
     return (
       <div className="flex flex-1">
         <div className="home-container">
-          <p className="body-medium text-light-1">Something bad happened</p>
+          <p className="body-medium text-dark-1 dark:text-light-1">Something bad happened</p>
         </div>
         <div className="home-creators">
-          <p className="body-medium text-light-1">Something bad happened</p>
+          <p className="body-medium text-dark-1 dark:text-light-1">Something bad happened</p>
         </div>
       </div>
     );
@@ -42,7 +44,7 @@ const Home = () => {
       </div>
 
       <div className="home-posts-container-container">
-        <h2 className="h3-bold md:h2-bold text-left w-full">Home Feed</h2>
+        <h2 className="h3-bold md:h2-bold text-left w-full text-dark-1 dark:text-light-1">Home Feed</h2>
         <div className="home-posts-container">
           <div className="home-posts">
             {isPostLoading && !posts ? (
@@ -59,6 +61,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <Bottombanner />
     </div>
   );
 };
