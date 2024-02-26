@@ -331,4 +331,22 @@
   .shad-button_link {
     @apply flex w-full h-5 font-normal justify-start !important
   }
+
+  /* Not active tab item */
+
+  .tab-item {
+    @apply px-4 py-2 text-sm font-medium text-center text-gray-500 bg-transparent rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-gray-300;
+  }
+  
+  /* Active item */
+
+  .tab-item.active {
+    @apply text-blue-600 dark:text-blue-400 border-b-2 border-blue-600 dark:border-blue-400 hover:bg-transparent;
+  }
+
+  .tabs-container {
+    @apply flex justify-center items-center gap-4 p-4;
+  }
+
+
 }
