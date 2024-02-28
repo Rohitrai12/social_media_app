@@ -66,9 +66,11 @@ const Topbar = () => {
           </Button>
 
           <Toggle 
+            lightModeIcon={<img src={"/assets/icons/sun-icon.svg"}/>} darkModeIcon={<img src={"/assets/icons/moon-icon.svg"}/>}
             variant="default"
             className="shad-toggle" 
           />
+
 
         {isLoading || !user.email ? (
           <div className="h-12">
@@ -127,7 +129,7 @@ const Topbar = () => {
         </div>
       </div>
 
-      <div className="topbar-divider"/>
+      <div className="divider"/>
       
     </section>
   );

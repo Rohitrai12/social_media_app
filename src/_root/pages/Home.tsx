@@ -79,8 +79,6 @@ const Home = () => {
     );
   }
 
-  
-
   return (
     <div className="flex flex-col w-full items-center">
       <div className="home-img-container">
@@ -95,19 +93,21 @@ const Home = () => {
         <h2 className="h3-bold md:h2-bold text-left w-full text-dark-1 dark:text-light-1">Home Feed</h2>
         {renderTabs()}
 
-          <div className={`home-posts-container`}>
-            {isPostLoading ? (
-              <Loader />
-            ) : (
-              <ul className="flex flex-col gap-9 w-full">
-                {getFilteredPosts()?.map((post: Models.Document) => (
-                  <li key={post.$id} className="flex justify-center w-full">
-                    <PostCard post={post} />
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
+          {selectedTab === 'Home' && (
+            <div className='home-posts-container'>
+              {isPostLoading ? (
+                <Loader />
+              ) : (
+                <ul className="flex flex-col gap-9 w-full">
+                  {getFilteredPosts()?.map((post: Models.Document) => (
+                    <li key={post.$id} className="flex justify-center w-full">
+                      <PostCard post={post} />
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          )}
 
           {selectedTab === 'Dorm Swap' && (
             <div className="dorm-swap-form-container ml-4 w-1/3">

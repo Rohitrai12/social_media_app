@@ -99,7 +99,7 @@
   }
 
   .custom-scrollbar::-webkit-scrollbar-track {
-    background: black;
+    background: grey;
   }
 
   .custom-scrollbar::-webkit-scrollbar-thumb {
@@ -143,10 +143,11 @@
 
    /* Home */
    .home-posts-container-container{
-    @apply flex flex-col flex-1 overflow-auto items-center justify-center min-h-full min-w-full pb-10;
+    @apply flex flex-col flex-1 overflow-auto items-center min-h-full min-w-full pb-10;
    }
+
    .home-posts-container {
-    @apply flex flex-col items-center gap-10 py-4 overflow-scroll px-5 custom-scrollbar;
+    @apply flex flex-col items-center gap-10 py-4 overflow-auto px-5 custom-scrollbar;
   }
 
   .home-posts {
@@ -201,9 +202,8 @@
   }
 
   /* Botton banner */
-
   .bottom-banner {
-    @apply min-w-full inset-x-0 bottom-0 bg-dark-1 border-t; 
+    @apply min-w-full inset-x-0 bottom-0 bg-light-1 dark:bg-dark-1; 
   }
 
   .bottom-banner-content {
@@ -211,7 +211,7 @@
   }
 
   .bottom-banner-text {
-    @apply text-white;
+    @apply text-black dark:text-white;
   }
 
   .bottom-banner-links {
@@ -219,12 +219,7 @@
   }
 
   .bottom-banner-icon {
-    @apply text-white hover:text-gray-800;
-  }
-
-  /* Bottom bar */
-  .bottom-bar {
-    @apply z-50 flex-between w-full sticky bottom-0 rounded-t-[20px] bg-dark-2 px-5 py-10 md:hidden;
+    @apply text-black dark:text-white hover:text-gray-800;
   }
 
   /* File uploader */
@@ -286,7 +281,7 @@
     @apply sticky top-0 z-50 bg-light-1 dark:bg-dark-1 w-full;
   }
 
-  .topbar-divider {
+  .divider {
     @apply divide-y border-t-[1px] border-t-dark-1 dark:border-t-light-1;
   }
 
@@ -346,6 +341,13 @@
 
   .tabs-container {
     @apply flex justify-center items-center gap-4 p-4;
+  }
+
+
+  /* Dorm Swap Form */
+
+  .dorm-swap-form-text {
+    @apply block text-sm font-medium text-black dark:text-white;
   }
 
 

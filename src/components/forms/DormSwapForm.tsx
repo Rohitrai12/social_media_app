@@ -1,6 +1,6 @@
-import React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { Button } from "@/components/ui";
 import * as z from 'zod';
 
 // Define your validation schema with Zod
@@ -51,7 +51,7 @@ const DormSwapForm = () => {
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
       {/* Current Dorm Name */}
       <div>
-        <label htmlFor="currentDormName">Current Dorm Name</label>
+        <label htmlFor="currentDormName" className="dorm-swap-form-text">Current Dorm Name</label>
         <select id="currentDormName" {...register('currentDormName')} className="...">
           {dormNameOptions.map(option => (
             <option value={option.value} key={option.value}>{option.label}</option>
@@ -63,7 +63,7 @@ const DormSwapForm = () => {
       {/* Desired Dorm Name */}
       
       <div>
-        <label htmlFor="desiredDormName" className="block text-sm font-medium text-gray-700">Desired Dorm Name</label>
+        <label htmlFor="desiredDormName" className="dorm-swap-form-text">Desired Dorm Name</label>
         <select
             id="desiredDormName"
             {...register('desiredDormName')}
@@ -80,14 +80,14 @@ const DormSwapForm = () => {
 
       {/* Room Number */}
       <div>
-        <label htmlFor="roomNumber">Room Number</label>
+        <label htmlFor="roomNumber" className="dorm-swap-form-text">Room Number</label>
         <input id="roomNumber" {...register('roomNumber')} type="text" className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md" />
         {errors.roomNumber && <p>{errors.roomNumber.message}</p>}
       </div>
 
       {/* Contact Number */}
       <div>
-        <label htmlFor="contactNumber" className="block text-sm font-medium text-gray-700">Contact Number</label>
+        <label htmlFor="contactNumber" className="dorm-swap-form-text">Contact Number</label>
         <input
             id="contactNumber"
             type="text"
@@ -101,20 +101,20 @@ const DormSwapForm = () => {
 
       {/* Email */}
       <div>
-        <label htmlFor="email">Email</label>
+        <label htmlFor="email" className="dorm-swap-form-text">Email</label>
         <input id="email" {...register('email')} type="email" className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md" />
         {errors.email && <p>{errors.email.message}</p>}
       </div>
 
       {/* Notes */}
       <div>
-        <label htmlFor="notes">Additional Notes</label>
+        <label htmlFor="notes" className="dorm-swap-form-text">Additional Notes</label>
         <textarea id="notes" {...register('notes')} className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md" />
       </div>
 
       {/* Submit Button */}
       <div>
-        <button type="submit" className="...">Submit Request</button>
+        <Button type="submit" className="shad-button_dark_4">Submit Request</Button>
       </div>
     </form>
   );

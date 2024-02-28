@@ -29,39 +29,56 @@ const toggleVariants = cva(
 interface ToggleProps
   extends React.ComponentPropsWithoutRef<typeof TogglePrimitive.Root>,
     VariantProps<typeof toggleVariants> {
-  // No need for onContent and offContent anymore since we are directly toggling dark mode
+  lightModeIcon?: React.ReactNode; // Icon for light mode
+  darkModeIcon?: React.ReactNode;  // Icon for dark mode
 }
 
 const Toggle = React.forwardRef<
   React.ElementRef<typeof TogglePrimitive.Root>,  
   ToggleProps
 >(
-  ({ className, variant, size, ...props }, ref) => {
-  // Function to toggle the dark mode
-  const toggleDarkMode = () => {
-    // Simplify the previous approach by directly toggling and using a coherent approach
-    const currentTheme = localStorage.getItem('color-theme');
-    if (currentTheme === 'dark') {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('color-theme', 'light');
-    } else {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('color-theme', 'dark');
-    }
-  };
+  ({ className, variant, size, lightModeIcon = '🌞', darkModeIcon = '🌙', ...props }, ref) => {
+    // Use React state to trigger re-renders when the theme changes
+    const [isDarkMode, setIsDarkMode] = React.useState(() => document.documentElement.classList.contains('dark'));
 
-  return (
-    <TogglePrimitive.Root
-      ref={ref}
-      className={cn(toggleVariants({ variant, size }), className || '')}
-      onPressedChange={toggleDarkMode}
-      {...props}
-    >
-      {/* You can conditionally render the icon or text based on the current theme */}
-      {/*document.documentElement.classList.contains('dark') ? '🌞' : '🌙'*/}
-    </TogglePrimitive.Root>
-  );
-});
+    React.useEffect(() => {
+      const updateMode = () => {
+        setIsDarkMode(document.documentElement.classList.contains('dark'));
+      };
+
+      // Listen for changes in the theme
+      window.addEventListener('storage', updateMode);
+
+      return () => {
+        window.removeEventListener('storage', updateMode);
+      };
+    }, []);
+
+    const toggleDarkMode = () => {
+      const currentTheme = localStorage.getItem('color-theme');
+      if (currentTheme === 'dark') {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('color-theme', 'light');
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('color-theme', 'dark');
+      }
+      // After toggling, update the state to re-render the component with the correct icon
+      setIsDarkMode(!isDarkMode);
+    };
+
+    return (
+      <TogglePrimitive.Root
+        ref={ref}
+        className={cn(toggleVariants({ variant, size }), className || '')}
+        onPressedChange={toggleDarkMode}
+        {...props}
+      >
+        {isDarkMode ? darkModeIcon : lightModeIcon}
+      </TogglePrimitive.Root>
+    );
+  }
+);
 
 Toggle.displayName = 'Toggle';
 
