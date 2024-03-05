@@ -10,14 +10,14 @@
   }
 
   body {
-    @apply bg-light-1 dark:bg-dark-1 text-white min-h-screen font-inter;
+    @apply bg-dark-1 text-white min-h-screen font-inter;
   }
 }
 
 @layer utilities {
   /* TYPOGRAPHY */
   .text-color {
-    @apply text-dark-1 dark:text-light-1;
+    @apply text-light-1;
   }
   .h1-bold {
     @apply text-[36px] font-bold leading-[140%] tracking-tighter;
@@ -142,7 +142,7 @@
   }
 
   .explore-search {
-    @apply h-12 bg-light-4 dark:bg-dark-4 border-none placeholder:text-light-4 focus-visible:ring-0 focus-visible:ring-offset-0 ring-offset-0 !important;
+    @apply h-12 bg-dark-4 border-none placeholder:text-light-4 focus-visible:ring-0 focus-visible:ring-offset-0 ring-offset-0 !important;
   }
 
    /* Home */
@@ -184,7 +184,7 @@
   }
 
   .post_details-delete_btn {
-    @apply p-0 flex gap-3 hover:bg-transparent hover:text-light-1  text-dark-1 dark:text-light-1 small-medium lg:base-medium;
+    @apply p-0 flex gap-3 hover:bg-transparent hover:text-light-1  text-light-1 small-medium lg:base-medium;
   }
 
   /* Profile */
@@ -197,7 +197,7 @@
   }
 
   .profile-tab {
-    @apply flex-center gap-3 py-4 w-48 bg-light-2 dark:bg-dark-2  transition flex-1 xl:flex-initial;
+    @apply flex-center gap-3 py-4 w-48 bg-dark-2  transition flex-1 xl:flex-initial;
   }
 
   /* Saved */
@@ -207,7 +207,7 @@
 
   /* Botton banner */
   .bottom-banner {
-    @apply min-w-full inset-x-0 bottom-0 bg-light-1 dark:bg-dark-1; 
+    @apply min-w-full inset-x-0 bottom-0 bg-dark-1; 
   }
 
   .bottom-banner-content {
@@ -215,7 +215,7 @@
   }
 
   .bottom-banner-text {
-    @apply text-black dark:text-white;
+    @apply text-white;
   }
 
   .bottom-banner-links {
@@ -223,7 +223,7 @@
   }
 
   .bottom-banner-icon {
-    @apply text-black dark:text-white hover:text-gray-800;
+    @apply text-white hover:text-gray-800;
   }
 
   /* File uploader */
@@ -278,15 +278,15 @@
   /* TopBar */
 
   .logo{
-    @apply w-[143px] h-[45px] bg-logoBlack dark:bg-logoWhite bg-contain bg-center
+    @apply w-[143px] h-[45px] bg-logoWhite bg-contain bg-center
   }
 
   .topbar {
-    @apply sticky top-0 z-50 bg-light-1 dark:bg-dark-1 w-full;
+    @apply sticky top-0 z-50 bg-dark-1 w-full;
   }
 
   .divider {
-    @apply divide-y border-t-[1px] border-t-dark-1 dark:border-t-light-1;
+    @apply divide-y border-t-[1px] border-t-light-1;
   }
 
   /* User card */
@@ -299,7 +299,7 @@
   /* SHADCN COMPONENTS */
   /* Form */
   .shad-form_label {
-    @apply text-black dark:text-white !important;
+    @apply text-white !important;
   }
 
   .shad-form_message {
@@ -316,15 +316,15 @@
 
   /* Button */
   .shad-button_primary {
-    @apply bg-primary-500 hover:bg-primary-500 text-dark-1 dark:text-light-1 flex gap-2 !important;
+    @apply bg-primary-500 hover:bg-primary-500 text-light-1 flex gap-2 !important;
   }
 
   .shad-button_dark_4 {
-    @apply h-12 bg-dark-4 px-5 text-dark-1 dark:text-light-1 flex gap-2 !important;
+    @apply h-12 bg-dark-4 px-5 text-light-1 flex gap-2 !important;
   }
 
   .shad-button_ghost {
-    @apply flex gap-4 items-center justify-start hover:bg-transparent text-dark-1 dark:text-light-1 !important;
+    @apply flex gap-4 items-center justify-start hover:bg-transparent text-light-1 !important;
   }
 
   .shad-button_link {
@@ -334,7 +334,7 @@
   /* Not active tab item */
 
   .tab-item {
-    @apply px-4 py-2 text-sm font-medium text-center text-gray-500 bg-transparent rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-gray-300;
+    @apply px-4 py-2 text-sm font-medium text-center text-gray-500 bg-transparent rounded-lg cursor-pointer hover:bg-gray-700 dark:text-gray-300;
   }
   
   /* Active item */

@@ -8,6 +8,7 @@ export const appwriteConfig = {
   userCollectionId: import.meta.env.VITE_APPWRITE_USER_COLLECTION_ID,
   dormSwapPostCollectionId: import.meta.env.VITE_APPWRITE_DORM_SWAP_POST_COLLECTION_ID,
   savesCollectionId: import.meta.env.VITE_APPWRITE_SAVES_COLLECTION_ID,
+  feedbackCollectionId: import.meta.env.VITE_APPWRITE_FEEDBACK_COLLECTION_ID,
 };
 
 export const client = new Client();

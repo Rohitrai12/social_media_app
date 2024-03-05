@@ -14,6 +14,7 @@ const RootLayout = () => {
       <section className="flex flex-1 overflow-auto">
         <Outlet />
       </section>
+      <Bottombanner />
     </div>
   );
 };

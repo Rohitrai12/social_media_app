@@ -65,11 +65,11 @@ const Topbar = () => {
               Feedback
           </Button>
 
-          <Toggle 
+          {/* <Toggle 
             lightModeIcon={<img src={"/assets/icons/sun-icon.svg"}/>} darkModeIcon={<img src={"/assets/icons/moon-icon.svg"}/>}
             variant="default"
             className="shad-toggle" 
-          />
+          /> */}
 
 
         {isLoading || !user.email ? (
@@ -97,10 +97,6 @@ const Topbar = () => {
                     Profile
                 </Button>
               </DropdownMenuItem>
-
-              <DropdownMenuCheckboxItem>
-                asdfj
-              </DropdownMenuCheckboxItem>
 
               <DropdownMenuSeparator />
 

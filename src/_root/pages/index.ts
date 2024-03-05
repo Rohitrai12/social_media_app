@@ -1,7 +1,7 @@
 export { default as Home } from "./Home";
 export { default as Explore } from "./Explore";
 export { default as Saved } from "./Saved";
-// export { default as Feedback} from "./Feedback"
+export { default as Feedback} from "./Feedback"
 export { default as CreateDormSwapPost } from "./CreateDormSwapPost";
 export { default as Profile } from "./Profile";
 export { default as UpdateProfile } from "./UpdateProfile";

@@ -1,7 +1,5 @@
 import { Models } from "appwrite";
 
-import Bottombanner from "@/components/shared/Bottombanner";
-
 // import { useToast } from "@/components/ui/use-toast";
 import { Loader, PostCard, UserCard } from "@/components/shared";
 import { useGetRecentPosts, useGetUsers } from "@/lib/react-query/queries";
@@ -90,7 +88,7 @@ const Home = () => {
       </div>
 
       <div className="home-posts-container-container">
-        <h2 className="h3-bold md:h2-bold text-left w-full text-dark-1 dark:text-light-1">Home Feed</h2>
+        <h2 className="h3-bold md:h2-bold text-left w-full text-light-1">Home Feed</h2>
         {renderTabs()}
 
           {selectedTab === 'Home' && (
@@ -115,8 +113,6 @@ const Home = () => {
             </div>
           )}
       </div>
-
-      <Bottombanner />
     </div>
   );
 };
