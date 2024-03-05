@@ -49,74 +49,92 @@ const DormSwapForm = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-      {/* Current Dorm Name */}
-      <div>
-        <label htmlFor="currentDormName" className="dorm-swap-form-text">Current Dorm Name</label>
-        <select id="currentDormName" {...register('currentDormName')} className="...">
-          {dormNameOptions.map(option => (
-            <option value={option.value} key={option.value}>{option.label}</option>
-          ))}
-        </select>
-        {errors.currentDormName && <p>{errors.currentDormName.message}</p>}
-      </div>
-    
-      {/* Desired Dorm Name */}
-      
-      <div>
-        <label htmlFor="desiredDormName" className="dorm-swap-form-text">Desired Dorm Name</label>
-        <select
-            id="desiredDormName"
-            {...register('desiredDormName')}
-            className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
-        >
-            <option value="">Select desired dorm</option>
-            {dormNameOptions.map(option => (
-                <option value={option.value} key={option.value}>{option.label}</option>
-            ))}
-        </select>
-        {errors.desiredDormName && <p className="mt-2 text-sm text-red-600">{errors.desiredDormName.message}</p>}
-      </div>
-      
+  {/* Current Dorm Name */}
+  <div>
+    <label htmlFor="currentDormName" className="form-label">Current Dorm Name</label>
+    <select 
+      id="currentDormName" 
+      {...register('currentDormName')} 
+      className="form-select"
+    >
+      {dormNameOptions.map(option => (
+        <option value={option.value} key={option.value}>{option.label}</option>
+      ))}
+    </select>
+    {errors.currentDormName && <p className="form-error">{errors.currentDormName.message}</p>}
+  </div>
 
-      {/* Room Number */}
-      <div>
-        <label htmlFor="roomNumber" className="dorm-swap-form-text">Room Number</label>
-        <input id="roomNumber" {...register('roomNumber')} type="text" className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md" />
-        {errors.roomNumber && <p>{errors.roomNumber.message}</p>}
-      </div>
+  {/* Desired Dorm Name */}
+  <div>
+    <label htmlFor="desiredDormName" className="form-label">Desired Dorm Name</label>
+    <select
+      id="desiredDormName"
+      {...register('desiredDormName')}
+      className="form-select"
+    >
+      <option value="">Select desired dorm</option>
+      {dormNameOptions.map(option => (
+        <option value={option.value} key={option.value}>{option.label}</option>
+      ))}
+    </select>
+    {errors.desiredDormName && <p className="form-error">{errors.desiredDormName.message}</p>}
+  </div>
 
-      {/* Contact Number */}
-      <div>
-        <label htmlFor="contactNumber" className="dorm-swap-form-text">Contact Number</label>
-        <input
-            id="contactNumber"
-            type="text"
-            {...register('contactNumber')}
-            className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
-            placeholder="Your contact number"
-        />
-        {errors.contactNumber && <p className="mt-2 text-sm text-red-600">{errors.contactNumber.message}</p>}
-      </div>
+  {/* Room Number */}
+  <div>
+    <label htmlFor="roomNumber" className="form-label">Room Number</label>
+    <input 
+      id="roomNumber" 
+      {...register('roomNumber')} 
+      type="text" 
+      className="form-input" 
+      placeholder="Room number"
+    />
+    {errors.roomNumber && <p className="form-error">{errors.roomNumber.message}</p>}
+  </div>
 
+  {/* Contact Number */}
+  <div>
+    <label htmlFor="contactNumber" className="form-label">Contact Number</label>
+    <input
+      id="contactNumber"
+      type="text"
+      {...register('contactNumber')}
+      className="form-input"
+      placeholder="Your contact number"
+    />
+    {errors.contactNumber && <p className="form-error">{errors.contactNumber.message}</p>}
+  </div>
 
-      {/* Email */}
-      <div>
-        <label htmlFor="email" className="dorm-swap-form-text">Email</label>
-        <input id="email" {...register('email')} type="email" className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md" />
-        {errors.email && <p>{errors.email.message}</p>}
-      </div>
+  {/* Email */}
+  <div>
+    <label htmlFor="email" className="form-label">Email</label>
+    <input 
+      id="email" 
+      {...register('email')} 
+      type="email" 
+      className="form-input" 
+      placeholder="Email address"
+    />
+    {errors.email && <p className="form-error">{errors.email.message}</p>}
+  </div>
 
-      {/* Notes */}
-      <div>
-        <label htmlFor="notes" className="dorm-swap-form-text">Additional Notes</label>
-        <textarea id="notes" {...register('notes')} className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md" />
-      </div>
+  {/* Notes */}
+  <div>
+    <label htmlFor="notes" className="form-label">Additional Notes</label>
+    <textarea 
+      id="notes" 
+      {...register('notes')} 
+      className="form-textarea" 
+      placeholder="Any additional information"
+    />
+  </div>
 
-      {/* Submit Button */}
-      <div>
-        <Button type="submit" className="shad-button_dark_4">Submit Request</Button>
-      </div>
-    </form>
+  {/* Submit Button */}
+  <div>
+    <Button type="submit" className="form-submit-btn">Submit Request</Button>
+  </div>
+</form>
   );
 };
 

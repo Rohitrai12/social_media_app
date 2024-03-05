@@ -23,6 +23,10 @@
     @apply text-[36px] font-bold leading-[140%] tracking-tighter;
   }
 
+  .text-red-500 {
+    color: #f87171
+  }
+
   .h1-semibold {
     @apply text-[36px] font-semibold leading-[140%] tracking-tighter;
   }
@@ -346,8 +350,29 @@
 
   /* Dorm Swap Form */
 
-  .dorm-swap-form-text {
-    @apply block text-sm font-medium text-black dark:text-white;
+  /* Custom Form Styles */
+  .form-input {
+    @apply text-white bg-gray-800 border border-gray-600 placeholder-gray-400 focus:border-blue-500 focus:ring focus:ring-blue-500;
+  }
+
+  .form-select {
+    @apply text-white bg-gray-800 border border-gray-600 focus:border-blue-500 focus:ring focus:ring-blue-500;
+  }
+
+  .form-textarea {
+    @apply text-white bg-gray-800 border border-gray-600 placeholder-gray-400 focus:border-blue-500 focus:ring focus:ring-blue-500;
+  }
+
+  .form-error {
+    @apply text-red-500 text-sm mt-2;
+  }
+
+  .form-label {
+    @apply text-white text-lg font-medium mb-2;
+  }
+
+  .form-submit-btn {
+    @apply bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-700;
   }
 
 
