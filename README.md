@@ -21,4 +21,4 @@ To get started with the Social Media App, follow these steps:
 1. Clone this repository to your local machine:
 
 ```bash
-git clone <https://github.com/Rohitrai12/social_media_app/>
+git clone https://github.com/Rohitrai12/social_media_app/
